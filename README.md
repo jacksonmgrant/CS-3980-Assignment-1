@@ -21,3 +21,12 @@ following graph shows the speed it takes to call any individual fibonacci number
 ###
 ![](/calc_speed_graph.png)
 ###
+The code outputs this raw data to the console:
+###
+![](/Screenshots/fib_output.png)
+###
+This outputting is done in the timer decorator. The decorator runs the fibonacci algorithm for a given
+number and times how long it takes, reporting that time before returning the value. See the code here:
+###
+![](/Screenshots/timer_screenshot.png)
+###
