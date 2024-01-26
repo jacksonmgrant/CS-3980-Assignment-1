@@ -3,8 +3,10 @@
 
 def echo(text: str, repetitions: int = 3) -> str:
     """Imitate a real world echo."""
+    if(len(text) <= 1):
+        return text
     word:str = text.split()[-1]
-    if(repetitions == 1 or len(word) <= 1):
+    if(repetitions == 1):
         return word
     else:
         return word + "\n" + echo(word[1:], repetitions - 1)
