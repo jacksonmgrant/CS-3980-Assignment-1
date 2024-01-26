@@ -1,7 +1,19 @@
 #fib.py
 #By Jackson Grant
 
-import functools
+from functools import lru_cache
+import time
+
+def timer(func):
+    """Print the runtime of the decorated function."""
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        value = func(*args, **kwargs)
+        end = time.time()
+        run_time = end - start
+        print(f"Finished in {run_time:.8f}s: f({args[0]}) -> {value}")
+        return value
+    return wrapper
 
 @lru_cache
 @timer
@@ -13,4 +25,4 @@ def fib(n: int) -> int:
         return fib(n - 1) + fib(n - 2)
     
 if __name__ == "__main__":
-    print(fib(100))
+    fib(100)
